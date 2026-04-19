@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tredence AI: Self-Pruning Network Showcase</title>
+    <meta name="description" content="AI Engineering Case Study Showcase for Tredence Analytics">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <header class="glass-panel">
+        <div class="logo-container">
+            <div class="logo-glyph">AI</div>
+            <div class="logo-text">
+                <h1>TREDENCE <span class="accent">STUDIO</span></h1>
+                <p>AI Agents Engineering Cohort '25</p>
+            </div>
+        </div>
+        <div class="status-indicator">
+            <span class="dot live"></span>
+            <span>SYSTEM ONLINE</span>
+        </div>
+    </header>
+
+    <main class="dashboard">
+        <!-- Left Column: Architecture & Sparsity Stats -->
+        <section class="panel-column">
+            <div class="glass-panel card hero-card">
+                <h2>The Self-Pruning Network</h2>
+                <p>A dynamic neural architecture that learns to prune its own weakest connections during training using L1 regularized sigmoid gates.</p>
+                <div class="stat-grid" id="network-stats">
+                    <div class="stat-box loading-pulse">
+                        <span class="stat-label">Total Parameters</span>
+                        <span class="stat-value">--</span>
+                    </div>
+                    <div class="stat-box loading-pulse">
+                        <span class="stat-label">Current Sparsity</span>
+                        <span class="stat-value">--</span>
+                    </div>
+                    <div class="stat-box loading-pulse">
+                        <span class="stat-label">Device Backend</span>
+                        <span class="stat-value">--</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-panel card visualization-card">
+                <h3>Architecture Breakdown</h3>
+                <div class="layer-list" id="layer-list">
+                    <!-- Populated by JS -->
+                    <div class="layer-item placeholder loading-pulse"></div>
+                    <div class="layer-item placeholder loading-pulse"></div>
+                    <div class="layer-item placeholder loading-pulse"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Interactive Inference -->
+        <section class="panel-column">
+            <div class="glass-panel card interactive-card">
+                <h3>Live Inference Testing</h3>
+                <p>Upload a CIFAR-10 class image (e.g. dog, cat, airplane, car) to test the forward pass of the custom <b>PrunableLinear</b> network.</p>
+                
+                <div class="upload-zone" id="drop-zone">
+                    <input type="file" id="image-upload" accept="image/*" hidden>
+                    <div class="upload-content">
+                        <svg viewBox="0 0 24 24" class="upload-icon" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <span>Drag & Drop image or <span class="accent highlight">Browse</span></span>
+                    </div>
+                    <img id="image-preview" class="hidden" alt="Upload Preview">
+                </div>
+
+                <button id="predict-btn" class="cyber-button" disabled>
+                    <span class="btn-text">RUN INFERENCE</span>
+                    <span class="btn-glitch"></span>
+                </button>
+
+                <div id="results-container" class="results-container hidden">
+                    <h4>Analysis Results</h4>
+                    <div class="prediction-main">
+                        <span class="pred-class" id="main-pred-class">--</span>
+                        <span class="pred-conf" id="main-pred-conf">--%</span>
+                    </div>
+                    <div class="prediction-bars" id="prediction-bars">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
